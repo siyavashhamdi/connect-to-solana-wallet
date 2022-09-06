@@ -1,15 +1,11 @@
-import { useState } from "react";
-
-import { ConnectWallet } from "./components/wallet/ConnectWallet";
+import Home from "./components/Home";
+import WalletContext from "./components/wallet/WalletContext";
 
 function App() {
-  const [publicKey, setPublicKey] = useState("");
-
   return (
-    <div>
-      <ConnectWallet setPublicKey={setPublicKey} />
-      <p>Public key: {publicKey}</p>
-    </div>
+    <WalletContext>
+      <Home />
+    </WalletContext>
   );
 }
 
