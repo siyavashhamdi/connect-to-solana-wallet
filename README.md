@@ -1,3 +1,3 @@
 ### TO RUN PROJECT
-npm i
-npm start
+- npm i
+- npm start
