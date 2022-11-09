@@ -39,14 +39,18 @@ export const SignMessageButton: FC = () => {
     }
   }, [publicKey, message, signMessage]);
 
-  console.log({ signature });
-
   return signMessage ? (
     <div>
       <textarea
-        style={{ width: "800px" }}
+        style={{ width: "800px", height: "100px" }}
         value={message}
-        onChange={(ev) => setMessage(ev.target.value)}
+        onChange={(ev) => {
+          const modifiedValue = ev.target.value
+            .replaceAll("\\n", "\n")
+            .replaceAll('\\"', '"');
+
+          setMessage(modifiedValue);
+        }}
       />
       <br />
       <button onClick={onClick} disabled={!publicKey}>
